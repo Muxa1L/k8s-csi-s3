@@ -28,7 +28,7 @@ type Mounter interface {
 const (
 	s3fsMounterType     = "s3fs"
 	geesefsMounterType  = "geesefs"
-	goofysMounterType  = "geesefs"
+	goofysMounterType   = "goofys"
 	rcloneMounterType   = "rclone"
 	TypeKey             = "mounter"
 	BucketKey           = "bucket"
