@@ -16,7 +16,7 @@ RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community s3
 
 ADD https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64 /usr/bin/geesefs
 ADD https://github.com/kahing/goofys/releases/latest/download/goofys /usr/bin/goofys
-RUN chmod 755 /usr/bin/geesefs
+RUN chmod 755 /usr/bin/geesefs && chmod 755 /usr/bin/goofys
 
 COPY --from=gobuild /build/s3driver /s3driver
 ENTRYPOINT ["/s3driver"]
