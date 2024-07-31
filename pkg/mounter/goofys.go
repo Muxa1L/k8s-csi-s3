@@ -82,11 +82,7 @@ func (goofys *goofysMounter) MountDirect(target string, args []string) error {
 	return fuseMount(target, goofysCmd, args, envs)
 }
 
-type execCmd struct {
-	Path             string
-	Args             []string
-	UncleanIsFailure bool
-}
+
 
 func (goofys *goofysMounter) Mount(target, volumeID string) error {
 	fullPath := fmt.Sprintf("%s:%s", goofys.meta.BucketName, goofys.meta.Prefix)
