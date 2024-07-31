@@ -73,7 +73,6 @@ func (goofys *goofysMounter) MountDirect(target string, args []string) error {
 	args = append([]string{
 		"--endpoint", goofys.endpoint,
 		"-o", "allow_other",
-		"--log-file", "/dev/stderr",
 	}, args...)
 	envs := []string{
 		"AWS_ACCESS_KEY_ID=" + goofys.accessKeyID,
@@ -92,8 +91,8 @@ func (goofys *goofysMounter) Mount(target, volumeID string) error {
 	}
 	args = append(
 		args,
-		"--setuid", "65534", // nobody. drop root privileges
-		"--setgid", "65534", // nogroup
+		"--uid", "65534", // nobody. drop root privileges
+		"--gid", "65534", // nogroup
 	)
 	var unsafeArgs []string
 	useSystemd := true
