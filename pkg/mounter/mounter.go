@@ -28,6 +28,7 @@ type Mounter interface {
 const (
 	s3fsMounterType     = "s3fs"
 	geesefsMounterType  = "geesefs"
+	goofysMounterType  = "geesefs"
 	rcloneMounterType   = "rclone"
 	TypeKey             = "mounter"
 	BucketKey           = "bucket"
@@ -44,6 +45,9 @@ func New(meta *s3.FSMeta, cfg *s3.Config) (Mounter, error) {
 	switch mounter {
 	case geesefsMounterType:
 		return newGeeseFSMounter(meta, cfg)
+
+	case goofysMounterType:
+		return newGoofysMounter(meta, cfg)
 
 	case s3fsMounterType:
 		return newS3fsMounter(meta, cfg)
