@@ -26,7 +26,7 @@ type goofysMounter struct {
 	secretAccessKey string
 }
 
-func newgoofysMounter(meta *s3.FSMeta, cfg *s3.Config) (Mounter, error) {
+func newGoofysMounter(meta *s3.FSMeta, cfg *s3.Config) (Mounter, error) {
 	return &goofysMounter{
 		meta:            meta,
 		endpoint:        cfg.Endpoint,
